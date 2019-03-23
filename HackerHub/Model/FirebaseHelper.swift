@@ -45,7 +45,25 @@ class FirebaseHelper {
     }
     
     func fetchSponsoredProjects(_ completionHandler: @escaping ([Project]?) -> Void) {
-    
+        ref.child("projects").observeSingleEvent(of: .value, with: { (snapshot) in
+            if let projectsData = snapshot.value as? [[String: String]] {
+                var projects: [Project] = []
+                for id in 0..<projectsData.count {
+                    let projectData = projectsData[id]
+                    if let project = Project.fromData(id: id, data: projectData) {
+                        projects.append(project)
+                    } else {
+                        completionHandler(nil)
+                    }
+                }
+                completionHandler(projects.filter { $0.sponsor != nil })
+            } else {
+                completionHandler(nil)
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+            completionHandler(nil)
+        }
     }
     
     func fetchProject(id: Int, _ completionHandler: @escaping (Project?) -> Void) {
