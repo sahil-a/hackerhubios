@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		219DE9A2C73429D98D514022 /* Pods_HackerHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17DCC03FF80303FB9E4B14A /* Pods_HackerHub.framework */; };
+		4679F7472246A372008CD4EC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4679F7462246A372008CD4EC /* HomeViewController.swift */; };
+		4679F74D2246AE93008CD4EC /* ProjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4679F74C2246AE93008CD4EC /* ProjectCollectionViewCell.swift */; };
 		BA1174212246853B00EBA6B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1174202246853B00EBA6B0 /* AppDelegate.swift */; };
 		BA1174232246853B00EBA6B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1174222246853B00EBA6B0 /* ViewController.swift */; };
 		BA1174262246853B00EBA6B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA1174242246853B00EBA6B0 /* Main.storyboard */; };
@@ -23,6 +25,8 @@
 
 /* Begin PBXFileReference section */
 		2B8B9BF8D3F266FAF0510E7B /* Pods-HackerHub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerHub.debug.xcconfig"; path = "Target Support Files/Pods-HackerHub/Pods-HackerHub.debug.xcconfig"; sourceTree = "<group>"; };
+		4679F7462246A372008CD4EC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		4679F74C2246AE93008CD4EC /* ProjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectCollectionViewCell.swift; path = /Users/abhishek/hackerhubios/HackerHub/ProjectCollectionViewCell.swift; sourceTree = "<absolute>"; };
 		7E9F1CD09B090DFB969F7F8F /* Pods-HackerHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerHub.release.xcconfig"; path = "Target Support Files/Pods-HackerHub/Pods-HackerHub.release.xcconfig"; sourceTree = "<group>"; };
 		BA11741D2246853B00EBA6B0 /* HackerHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA1174202246853B00EBA6B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +98,8 @@
 				BA1174202246853B00EBA6B0 /* AppDelegate.swift */,
 				BA1174222246853B00EBA6B0 /* ViewController.swift */,
 				BA1174242246853B00EBA6B0 /* Main.storyboard */,
+				4679F74C2246AE93008CD4EC /* ProjectCollectionViewCell.swift */,
+				4679F7462246A372008CD4EC /* HomeViewController.swift */,
 				BA97894322468E0000E2901D /* Model */,
 				BA1174272246853C00EBA6B0 /* Assets.xcassets */,
 				BA1174292246853C00EBA6B0 /* LaunchScreen.storyboard */,
@@ -244,7 +250,9 @@
 				BA1174232246853B00EBA6B0 /* ViewController.swift in Sources */,
 				BA97894522468E1F00E2901D /* FirebaseHelper.swift in Sources */,
 				BA1174212246853B00EBA6B0 /* AppDelegate.swift in Sources */,
+				4679F7472246A372008CD4EC /* HomeViewController.swift in Sources */,
 				BA97894922468F2A00E2901D /* Team.swift in Sources */,
+				4679F74D2246AE93008CD4EC /* ProjectCollectionViewCell.swift in Sources */,
 				BA97894722468F0800E2901D /* Hackathon.swift in Sources */,
 				BA97894B22468FAE00E2901D /* Project.swift in Sources */,
 				BA97894D22468FC200E2901D /* User.swift in Sources */,
