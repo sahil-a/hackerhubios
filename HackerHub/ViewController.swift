@@ -12,7 +12,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let helper = FirebaseHelper.standardHelper
+        
+        helper.fetchHackathons { hackathons in
+            if let hackathons = hackathons {
+                print(hackathons[0].teams[0].members[0].skills)
+            }
+        }
     }
 
 
