@@ -20,11 +20,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         FirebaseHelper.standardHelper.fetchHackathons { hackathons in
             if let hackathons = hackathons {
-                self.hackathons = hackathons
-                print(hackathons.count)
-                
+                for hackathon in hackathons {
+                    self.hackathons.append(hackathon)
+                }
+               
+                print(self.hackathons)
             }
         }
+        
         FirebaseHelper.standardHelper.fetchSponsoredProjects { projects in
             if let projects = projects {
                 self.sponsoredProjects = projects
@@ -49,16 +52,18 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         } else {
             return hackathons.count
         }
+        
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == projectCollection {
-            let project = sponsoredProjects[indexPath.row]
+            //let project = sponsoredProjects[indexPath.row]
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "projectCell", for: indexPath) as! ProjectCollectionViewCell
             return cell
         } else {
             
-            let hack = hackathons[indexPath.row]
+            //let hack = hackathons[indexPath.row]
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hackathonCell", for: indexPath) as! HackCollectionViewCell
             return cell
             
