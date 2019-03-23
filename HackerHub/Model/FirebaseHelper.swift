@@ -17,12 +17,44 @@ class FirebaseHelper {
         return Database.database().reference()
     }()
     
+    func loadImage(url: String, completionHandler: @escaping (UIImage?) -> Void) {
+        
+    }
+    
     // MARK: Local User Management
     
     func register(email: String, password: String, name: String, phone: String, profilePic: UIImage, skills: [Skill], completionHandler: @escaping (User?) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let userData = authResult?.user {
                 let storage = Storage.storage()
+                let url = "profilePics/" + userData.uid + ".png"
+                let storageRef = storage.reference().child(url)
+                let profilePicData = profilePic.pngData()!
+                
+                storageRef.putData(profilePicData, metadata: nil) { (metadata, error) in
+                    guard let _ = metadata else {
+                        completionHandler(nil)
+                        return
+                    }
+                    
+                    let data: [String: Any] = [
+                        "name": name,
+                        "phone": phone,
+                        "profilePicURL": url,
+                        "skills": skills.map { $0.rawValue }
+                    ]
+                    
+                    self.ref.child("userData").child(userData.uid).setValue(data, withCompletionBlock: { (error, _) in
+                        if error == nil {
+                            self.fetchUser(id: userData.uid) { user in
+                                completionHandler(user)
+                            }
+                        } else {
+                            completionHandler(nil)
+                        }
+                    })
+                }
+                
             } else {
                 completionHandler(nil)
             }
