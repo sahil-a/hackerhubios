@@ -31,6 +31,8 @@ class ViewController: UIViewController {
             
         }
         
+        
+        
         performSegue(withIdentifier: "signInSegue", sender: self)
 
         

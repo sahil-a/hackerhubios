@@ -9,52 +9,14 @@
 import UIKit
 
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    @IBOutlet var hackathonCollection: UICollectionView!
-    @IBOutlet var projectCollection: UICollectionView!
-    var hackathons: [Hackathon] = []
-    var sponsoredProjects: [Project] = []
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        FirebaseHelper.standardHelper.fetchHackathons { hackathons in
-            if let hackathons = hackathons {
-                for hackathon in hackathons {
-                    self.hackathons.append(hackathon)
-                }
-               
-                print(self.hackathons)
-            }
-        }
-        
-        FirebaseHelper.standardHelper.fetchSponsoredProjects { projects in
-            if let projects = projects {
-                self.sponsoredProjects = projects
-                print(projects.count)
-                self.projectCollection.reloadData()
-            } else {
-                print("E")
-            }
-        }
-    }
-    
-    @IBAction func reload(_ sender: Any) {
-        
-        projectCollection.reloadData()
-    }
-    
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == projectCollection {
             print(sponsoredProjects.count)
-            return hackathons.count
+            return sponsoredProjects.count
         } else {
             return hackathons.count
         }
-        
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == projectCollection {
@@ -66,13 +28,40 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             //let hack = hackathons[indexPath.row]
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hackathonCell", for: indexPath) as! HackCollectionViewCell
             return cell
+        }
+    }
+    
+    
+    @IBOutlet var hackathonCollection: UICollectionView!
+    @IBOutlet var projectCollection: UICollectionView!
+    var hackathons: [Hackathon] = []
+    var sponsoredProjects: [Project] = []
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        hackathonCollection.delegate = self
+        projectCollection.delegate = self
+        hackathonCollection.dataSource = self
+        projectCollection.dataSource = self
+        
+        FirebaseHelper.standardHelper.fetchHackathons { hackathons in
+            if let hackathons = hackathons {
+                    self.hackathons = hackathons
+                    print(self.hackathons.count)
+                    self.hackathonCollection.reloadData()
             
         }
         
+        FirebaseHelper.standardHelper.fetchSponsoredProjects { projects in
+            if let projects = projects {
+                self.sponsoredProjects = projects
+                print(projects.count)
+                self.projectCollection.reloadData()
+            }
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, shouldSpringLoadItemAt indexPath: IndexPath, with context: UISpringLoadedInteractionContext) -> Bool {
-        return true
-    }
 
+}
 }
