@@ -14,6 +14,11 @@
 		BA1174282246853C00EBA6B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA1174272246853C00EBA6B0 /* Assets.xcassets */; };
 		BA11742B2246853C00EBA6B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA1174292246853C00EBA6B0 /* LaunchScreen.storyboard */; };
 		BA1174332246869800EBA6B0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA1174322246869800EBA6B0 /* GoogleService-Info.plist */; };
+		BA97894522468E1F00E2901D /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA97894422468E1F00E2901D /* FirebaseHelper.swift */; };
+		BA97894722468F0800E2901D /* Hackathon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA97894622468F0800E2901D /* Hackathon.swift */; };
+		BA97894922468F2A00E2901D /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA97894822468F2A00E2901D /* Team.swift */; };
+		BA97894B22468FAE00E2901D /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA97894A22468FAE00E2901D /* Project.swift */; };
+		BA97894D22468FC200E2901D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA97894C22468FC200E2901D /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +32,11 @@
 		BA11742A2246853C00EBA6B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA11742C2246853C00EBA6B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA1174322246869800EBA6B0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BA97894422468E1F00E2901D /* FirebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
+		BA97894622468F0800E2901D /* Hackathon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hackathon.swift; sourceTree = "<group>"; };
+		BA97894822468F2A00E2901D /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		BA97894A22468FAE00E2901D /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		BA97894C22468FC200E2901D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E17DCC03FF80303FB9E4B14A /* Pods_HackerHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackerHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -48,7 +58,6 @@
 				2B8B9BF8D3F266FAF0510E7B /* Pods-HackerHub.debug.xcconfig */,
 				7E9F1CD09B090DFB969F7F8F /* Pods-HackerHub.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -85,11 +94,24 @@
 				BA1174202246853B00EBA6B0 /* AppDelegate.swift */,
 				BA1174222246853B00EBA6B0 /* ViewController.swift */,
 				BA1174242246853B00EBA6B0 /* Main.storyboard */,
+				BA97894322468E0000E2901D /* Model */,
 				BA1174272246853C00EBA6B0 /* Assets.xcassets */,
 				BA1174292246853C00EBA6B0 /* LaunchScreen.storyboard */,
 				BA11742C2246853C00EBA6B0 /* Info.plist */,
 			);
 			path = HackerHub;
+			sourceTree = "<group>";
+		};
+		BA97894322468E0000E2901D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BA97894422468E1F00E2901D /* FirebaseHelper.swift */,
+				BA97894622468F0800E2901D /* Hackathon.swift */,
+				BA97894822468F2A00E2901D /* Team.swift */,
+				BA97894A22468FAE00E2901D /* Project.swift */,
+				BA97894C22468FC200E2901D /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,7 +242,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA1174232246853B00EBA6B0 /* ViewController.swift in Sources */,
+				BA97894522468E1F00E2901D /* FirebaseHelper.swift in Sources */,
 				BA1174212246853B00EBA6B0 /* AppDelegate.swift in Sources */,
+				BA97894922468F2A00E2901D /* Team.swift in Sources */,
+				BA97894722468F0800E2901D /* Hackathon.swift in Sources */,
+				BA97894B22468FAE00E2901D /* Project.swift in Sources */,
+				BA97894D22468FC200E2901D /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

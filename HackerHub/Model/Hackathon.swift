@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+struct Hackathon {
+    var name: String
+    var location: String
+    var info: String
+    var contactEmail: String
+    var pictureURL: String
+}

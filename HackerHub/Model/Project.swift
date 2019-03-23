@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+struct Project {
+    var name: String
+    var sponsor: String?
+    var description: String
+    var contactEmail: String?
+    var instructions: String?
+    var pictureURL: String?
+}

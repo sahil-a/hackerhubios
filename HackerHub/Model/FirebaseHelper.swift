@@ -7,3 +7,24 @@
 //
 
 import Foundation
+import FirebaseDatabase
+
+class FirebaseHelper {
+    var standardHelper: FirebaseHelper = FirebaseHelper()
+}
+
+extension Hackathon {
+    
+}
+
+extension Team {
+    
+}
+
+extension Project {
+    
+}
+
+extension User {
+    
+}

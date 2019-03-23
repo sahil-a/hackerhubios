@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+struct User {
+    var skills: [Skill]
+    var name: String
+    var phone: String
+    var profilePicURL: String
+}
+
+enum Skill {
+    case ios, web, python, android, cpp, unity, design, git, react, angular, node
+}
