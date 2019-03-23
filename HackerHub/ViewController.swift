@@ -16,6 +16,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        FirebaseHelper.standardHelper.fetchHackathons { hackathons in
+//            if let hackathons = hackathons {
+//                hackathons[0].teams[0].members[0].
+//            }
+//        }
     }
     
     @IBAction func signInClicked(_ sender: Any) {

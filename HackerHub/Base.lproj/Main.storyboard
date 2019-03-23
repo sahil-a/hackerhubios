@@ -184,8 +184,15 @@
                                                     <rect key="frame" x="5" y="9" width="155" height="155"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nxK-Zd-RSV">
+                                                    <rect key="frame" x="10" y="10" width="145" height="99"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </view>
+                                        <connections>
+                                            <outlet property="projectImage" destination="nxK-Zd-RSV" id="Sz3-uW-cAb"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -204,7 +211,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="hackCell" id="ZMB-14-AKL">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="hackathonCell" id="ZMB-14-AKL">
                                         <rect key="frame" x="0.0" y="4" width="164" height="172"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -232,6 +239,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TBP-4x-JST"/>
                     </view>
+                    <connections>
+                        <outlet property="hackathonCollection" destination="qN6-un-YjU" id="f6b-Lm-dKQ"/>
+                        <outlet property="projectCollection" destination="0TR-m9-zCp" id="5ML-t9-Cf4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FCE-FZ-rKO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

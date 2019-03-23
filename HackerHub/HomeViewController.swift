@@ -9,34 +9,60 @@
 import UIKit
 
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
-
+    
+    @IBOutlet var hackathonCollection: UICollectionView!
+    @IBOutlet var projectCollection: UICollectionView!
+    var hackathons: [Hackathon] = []
+    var sponsoredProjects: [Project] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-//            UIView.animate(withDuration: 5){
-//                self.view.transform = CGAffineTransform(scaleX: 1, y: 1)
-//            }
-//        }
-
-        
-        
-        
+        FirebaseHelper.standardHelper.fetchHackathons { hackathons in
+            if let hackathons = hackathons {
+                self.hackathons = hackathons
+                print(hackathons.count)
+                
+            }
+        }
+        FirebaseHelper.standardHelper.fetchSponsoredProjects { projects in
+            if let projects = projects {
+                self.sponsoredProjects = projects
+                print(projects.count)
+                self.projectCollection.reloadData()
+            } else {
+                print("E")
+            }
+        }
     }
     
+    @IBAction func reload(_ sender: Any) {
+        
+        projectCollection.reloadData()
+    }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        if collectionView == projectCollection {
+            print(sponsoredProjects.count)
+            return hackathons.count
+        } else {
+            return hackathons.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "projectCell", for: indexPath) as! ProjectCollectionViewCell
-    
-        return cell
+        if collectionView == projectCollection {
+            let project = sponsoredProjects[indexPath.row]
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "projectCell", for: indexPath) as! ProjectCollectionViewCell
+            return cell
+        } else {
+            
+            let hack = hackathons[indexPath.row]
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hackathonCell", for: indexPath) as! HackCollectionViewCell
+            return cell
+            
+        }
         
     }
     

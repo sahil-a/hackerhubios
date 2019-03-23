@@ -9,4 +9,5 @@ import UIKit
 
 class ProjectCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet var projectImage: UIImageView!
 }
