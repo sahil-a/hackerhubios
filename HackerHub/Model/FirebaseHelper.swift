@@ -18,7 +18,18 @@ class FirebaseHelper {
     }()
     
     func loadImage(url: String, completionHandler: @escaping (UIImage?) -> Void) {
+        let storage = Storage.storage()
+        let storageRef = storage.reference().child(url)
         
+        // 10MB max file size
+        storageRef.getData(maxSize: 10 * 1024 * 1024) { data, error in
+            if let _ = error {
+                completionHandler(nil)
+            } else {
+                let image = UIImage(data: data!)
+                completionHandler(image)
+            }
+        }
     }
     
     // MARK: Local User Management
