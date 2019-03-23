@@ -15,9 +15,9 @@ class ViewController: UIViewController {
         
         let helper = FirebaseHelper.standardHelper
         
-        helper.fetchHackathons { hackathons in
-            if let hackathons = hackathons {
-                print(hackathons[0].teams[0].members[0].skills)
+        helper.fetchSponsoredProjects { projects in
+            if let projects = projects {
+                print(projects.count)
             }
         }
     }
