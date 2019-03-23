@@ -8,6 +8,8 @@
 
 import Foundation
 import FirebaseDatabase
+import FirebaseAuth
+import FirebaseStorage
 
 class FirebaseHelper {
     static var standardHelper: FirebaseHelper = FirebaseHelper()
@@ -15,9 +17,65 @@ class FirebaseHelper {
         return Database.database().reference()
     }()
     
+    func loadImage(url: String, completionHandler: @escaping (UIImage?) -> Void) {
+        
+    }
+    
+    // MARK: Local User Management
+    
+    func register(email: String, password: String, name: String, phone: String, profilePic: UIImage, skills: [Skill], completionHandler: @escaping (User?) -> Void) {
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let userData = authResult?.user {
+                let storage = Storage.storage()
+                let url = "profilePics/" + userData.uid + ".png"
+                let storageRef = storage.reference().child(url)
+                let profilePicData = profilePic.pngData()!
+                
+                storageRef.putData(profilePicData, metadata: nil) { (metadata, error) in
+                    guard let _ = metadata else {
+                        completionHandler(nil)
+                        return
+                    }
+                    
+                    let data: [String: Any] = [
+                        "name": name,
+                        "phone": phone,
+                        "profilePicURL": url,
+                        "skills": skills.map { $0.rawValue }
+                    ]
+                    
+                    self.ref.child("userData").child(userData.uid).setValue(data, withCompletionBlock: { (error, _) in
+                        if error == nil {
+                            self.fetchUser(id: userData.uid) { user in
+                                completionHandler(user)
+                            }
+                        } else {
+                            completionHandler(nil)
+                        }
+                    })
+                }
+                
+            } else {
+                completionHandler(nil)
+            }
+        }
+    }
+    
+    func login(email: String, password: String, completionHandler: @escaping (User?) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] result, error in
+            if let userData = result?.user {
+                self!.fetchUser(id: userData.uid) { user in
+                    completionHandler(user)
+                }
+            } else {
+                completionHandler(nil)
+            }
+        }
+    }
+    
     // MARK: Fetching Data
     
-    func fetchHackathons(_ completionHandler: @escaping ([Hackathon]?) -> Void) {
+    func fetchHackathons(completionHandler: @escaping ([Hackathon]?) -> Void) {
         ref.child("hackathons").observeSingleEvent(of: .value, with: { (snapshot) in
             if let hackathonsRaw = snapshot.value as? [[String: Any]] {
                 var hackathons: [Hackathon] = []
@@ -44,11 +102,29 @@ class FirebaseHelper {
         }
     }
     
-    func fetchSponsoredProjects(_ completionHandler: @escaping ([Project]?) -> Void) {
-    
+    func fetchSponsoredProjects(completionHandler: @escaping ([Project]?) -> Void) {
+        ref.child("projects").observeSingleEvent(of: .value, with: { (snapshot) in
+            if let projectsData = snapshot.value as? [[String: String]] {
+                var projects: [Project] = []
+                for id in 0..<projectsData.count {
+                    let projectData = projectsData[id]
+                    if let project = Project.fromData(id: id, data: projectData) {
+                        projects.append(project)
+                    } else {
+                        completionHandler(nil)
+                    }
+                }
+                completionHandler(projects.filter { $0.sponsor != nil })
+            } else {
+                completionHandler(nil)
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+            completionHandler(nil)
+        }
     }
     
-    func fetchProject(id: Int, _ completionHandler: @escaping (Project?) -> Void) {
+    func fetchProject(id: Int, completionHandler: @escaping (Project?) -> Void) {
         ref.child("projects").observeSingleEvent(of: .value, with: { (snapshot) in
             if let projectsData = snapshot.value as? [[String: String]] {
                 guard id < projectsData.count else {
@@ -70,7 +146,7 @@ class FirebaseHelper {
         }
     }
     
-    func fetchUser(id: String, _ completionHandler: @escaping (User?) -> Void) {
+    func fetchUser(id: String, completionHandler: @escaping (User?) -> Void) {
         ref.child("userData").child(id).observeSingleEvent(of: .value, with: { (snapshot) in
             if let userData = snapshot.value as? [String: Any] {
                 if let user = User.fromData(id: id, data: userData) {
@@ -89,7 +165,7 @@ class FirebaseHelper {
 }
 
 extension Hackathon {
-    static func fromData(id: Int, data: [String: Any], _ completionHandler: @escaping (Hackathon?) -> Void) {
+    static func fromData(id: Int, data: [String: Any], completionHandler: @escaping (Hackathon?) -> Void) {
         if let contactEmail = data["contactEmail"] as? String,
             let info = data["info"] as? String,
             let location = data["location"] as? String,
@@ -120,7 +196,7 @@ extension Hackathon {
 }
 
 extension Team {
-    static func fromData(id: Int, data: [String: Any], _ completionHandler: @escaping (Team?) -> Void) {
+    static func fromData(id: Int, data: [String: Any], completionHandler: @escaping (Team?) -> Void) {
         if let memberIDs = data["members"] as? [String],
             let name = data["name"] as? String,
             let projectID = data["project"] as? Int {
