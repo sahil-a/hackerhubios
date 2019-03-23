@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		219DE9A2C73429D98D514022 /* Pods_HackerHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17DCC03FF80303FB9E4B14A /* Pods_HackerHub.framework */; };
 		BA1174212246853B00EBA6B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1174202246853B00EBA6B0 /* AppDelegate.swift */; };
 		BA1174232246853B00EBA6B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1174222246853B00EBA6B0 /* ViewController.swift */; };
 		BA1174262246853B00EBA6B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA1174242246853B00EBA6B0 /* Main.storyboard */; };
 		BA1174282246853C00EBA6B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA1174272246853C00EBA6B0 /* Assets.xcassets */; };
 		BA11742B2246853C00EBA6B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA1174292246853C00EBA6B0 /* LaunchScreen.storyboard */; };
+		BA1174332246869800EBA6B0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA1174322246869800EBA6B0 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B8B9BF8D3F266FAF0510E7B /* Pods-HackerHub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerHub.debug.xcconfig"; path = "Target Support Files/Pods-HackerHub/Pods-HackerHub.debug.xcconfig"; sourceTree = "<group>"; };
+		7E9F1CD09B090DFB969F7F8F /* Pods-HackerHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerHub.release.xcconfig"; path = "Target Support Files/Pods-HackerHub/Pods-HackerHub.release.xcconfig"; sourceTree = "<group>"; };
 		BA11741D2246853B00EBA6B0 /* HackerHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA1174202246853B00EBA6B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA1174222246853B00EBA6B0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +26,8 @@
 		BA1174272246853C00EBA6B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA11742A2246853C00EBA6B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA11742C2246853C00EBA6B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA1174322246869800EBA6B0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E17DCC03FF80303FB9E4B14A /* Pods_HackerHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackerHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				219DE9A2C73429D98D514022 /* Pods_HackerHub.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CF782D7D0A88E38EC7161DA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2B8B9BF8D3F266FAF0510E7B /* Pods-HackerHub.debug.xcconfig */,
+				7E9F1CD09B090DFB969F7F8F /* Pods-HackerHub.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A51771D09A702545F2CEECD9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E17DCC03FF80303FB9E4B14A /* Pods_HackerHub.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BA1174142246853B00EBA6B0 = {
 			isa = PBXGroup;
 			children = (
 				BA11741F2246853B00EBA6B0 /* HackerHub */,
 				BA11741E2246853B00EBA6B0 /* Products */,
+				0CF782D7D0A88E38EC7161DA /* Pods */,
+				A51771D09A702545F2CEECD9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +81,7 @@
 		BA11741F2246853B00EBA6B0 /* HackerHub */ = {
 			isa = PBXGroup;
 			children = (
+				BA1174322246869800EBA6B0 /* GoogleService-Info.plist */,
 				BA1174202246853B00EBA6B0 /* AppDelegate.swift */,
 				BA1174222246853B00EBA6B0 /* ViewController.swift */,
 				BA1174242246853B00EBA6B0 /* Main.storyboard */,
@@ -71,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA11742F2246853C00EBA6B0 /* Build configuration list for PBXNativeTarget "HackerHub" */;
 			buildPhases = (
+				DB97B046B305983A48AA1C3E /* [CP] Check Pods Manifest.lock */,
 				BA1174192246853B00EBA6B0 /* Sources */,
 				BA11741A2246853B00EBA6B0 /* Frameworks */,
 				BA11741B2246853B00EBA6B0 /* Resources */,
+				C475655C3681414E6FF2004F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,12 +153,66 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA11742B2246853C00EBA6B0 /* LaunchScreen.storyboard in Resources */,
+				BA1174332246869800EBA6B0 /* GoogleService-Info.plist in Resources */,
 				BA1174282246853C00EBA6B0 /* Assets.xcassets in Resources */,
 				BA1174262246853B00EBA6B0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C475655C3681414E6FF2004F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HackerHub/Pods-HackerHub-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HackerHub/Pods-HackerHub-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB97B046B305983A48AA1C3E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HackerHub-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BA1174192246853B00EBA6B0 /* Sources */ = {
@@ -280,6 +364,7 @@
 		};
 		BA1174302246853C00EBA6B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B8B9BF8D3F266FAF0510E7B /* Pods-HackerHub.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +383,7 @@
 		};
 		BA1174312246853C00EBA6B0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E9F1CD09B090DFB969F7F8F /* Pods-HackerHub.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
